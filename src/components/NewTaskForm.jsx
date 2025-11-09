@@ -8,14 +8,14 @@ function NewTaskForm({ onSave, onCancel }) {
   const [prazo, setPrazo] = useState('');
 
   const handleSave = () => {
-    const nomeRegex = /^[A-Za-z\s]+$/;
-    if (!nomeRegex.test(responsavel)) {
-      alert('O nome do responsável não pode conter números.');
+    if (!title || !responsavel || !prazo) {
+      alert('Título, Responsável e Prazo são obrigatórios!');
       return;
     }
 
-    if (!title || !responsavel) {
-      alert('Título e Responsável são obrigatórios!');
+    const nomeRegex = /^[A-Za-z\s]+$/;
+    if (!nomeRegex.test(responsavel)) {
+      alert('O nome do responsável não pode conter números.');
       return;
     }
     
